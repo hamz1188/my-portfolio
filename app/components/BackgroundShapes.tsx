@@ -3,11 +3,12 @@
 export function BackgroundShapes() {
   return (
     <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-      {/* Rotating Triangle (Top Right) */}
-      <div 
-        className="absolute top-1/4 right-[-5%] w-[500px] h-[500px] border border-white/5 animate-[spin_60s_linear_infinite]"
-        style={{ clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)' }}
-      />
+      {/* Rotating Triangle (Top Right) - SVG for perfect wireframe */}
+      <div className="absolute top-1/4 right-[-5%] w-[500px] h-[500px] animate-[spin_60s_linear_infinite]">
+        <svg viewBox="0 0 100 100" className="w-full h-full opacity-5">
+          <polygon points="50,10 90,90 10,90" fill="none" stroke="white" strokeWidth="0.5" />
+        </svg>
+      </div>
       
       {/* Rotating Square (Bottom Left) */}
       <div className="absolute bottom-1/4 left-[-5%] w-[300px] h-[300px] border border-white/5 animate-[spin_40s_linear_infinite_reverse]" />
