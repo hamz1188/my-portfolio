@@ -41,12 +41,12 @@ export function Projects() {
                     <p className="mb-4">{project.description}</p>
                     <div className="flex gap-6 uppercase font-bold text-sm tracking-widest">
                       {project.demoLink && (
-                        <a href={project.demoLink} className="hover:underline">
+                        <a href={project.demoLink} target="_blank" rel="noopener noreferrer" className="hover:underline">
                           Live Demo ↗
                         </a>
                       )}
                       {project.codeLink && (
-                        <a href={project.codeLink} className="hover:underline">
+                        <a href={project.codeLink} target="_blank" rel="noopener noreferrer" className="hover:underline">
                           Code ↗
                         </a>
                       )}

@@ -48,7 +48,20 @@ export default async function Post({ params }: { params: { slug: string } }) {
         </header>
 
         <div className="prose prose-lg dark:prose-invert max-w-none mx-auto animate-fade-in-up delay-200">
-          <ReactMarkdown>
+          <ReactMarkdown
+            components={{
+              a: (props) => {
+                const isExternal = props.href?.startsWith('http');
+                return (
+                  <a
+                    {...props}
+                    target={isExternal ? '_blank' : undefined}
+                    rel={isExternal ? 'noopener noreferrer' : undefined}
+                  />
+                );
+              }
+            }}
+          >
             {postData.content}
           </ReactMarkdown>
         </div>

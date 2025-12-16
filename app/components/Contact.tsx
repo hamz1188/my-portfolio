@@ -1,10 +1,9 @@
 'use client';
 
-import { useForm, ValidationError } from '@formspree/react';
+import { portfolioData } from '../data/portfolio';
 
 export function Contact() {
-  // Replace 'YOUR_PROJECT_ID' with your actual Formspree Project ID
-  const [state, handleSubmit] = useForm("mdkqrole");
+  const { personalInfo } = portfolioData;
 
   return (
     <section id="contact" className="py-32 px-6 md:px-24 border-t border-white/10 mb-20">
@@ -24,67 +23,41 @@ export function Contact() {
                 From management to electrics | from pixels to lumens. This is what we love to do.
               </p>
               <a 
-                href="mailto:ah1188x@gmail.com" 
+                href={`mailto:${personalInfo.email}`}
                 className="text-2xl md:text-4xl font-bold underline decoration-1 underline-offset-8 hover:text-gray-400 transition-colors"
               >
-                ah1188x@gmail.com
+                {personalInfo.email}
               </a>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-8">
-              {state.succeeded && (
-                <div className="p-4 border border-green-500 text-green-500 font-mono text-sm uppercase">
-                  Message Sent Successfully
-                </div>
-              )}
+            <div className="space-y-8">
+              <h3 className="text-xl font-mono text-gray-500 uppercase tracking-widest mb-8">Get in Touch</h3>
               
-              <div className="group">
-                <label htmlFor="name" className="block font-mono text-xs text-gray-500 mb-2 uppercase tracking-widest">Name</label>
-                <input 
-                  id="name"
-                  type="text" 
-                  name="name"
-                  required
-                  className="w-full bg-transparent border-b border-white/20 py-4 text-xl focus:border-white focus:outline-none transition-colors"
-                  placeholder="ENTER YOUR NAME"
-                />
-                <ValidationError prefix="Name" field="name" errors={state.errors} className="text-red-500 text-xs mt-1" />
+              <div className="flex flex-col gap-6">
+                <a 
+                  href={personalInfo.socials.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-3xl font-bold uppercase hover:text-gray-400 transition-colors flex items-center gap-4"
+                >
+                  GitHub ↗
+                </a>
+                <a 
+                  href={personalInfo.socials.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-3xl font-bold uppercase hover:text-gray-400 transition-colors flex items-center gap-4"
+                >
+                  LinkedIn ↗
+                </a>
+                <a 
+                  href={`mailto:${personalInfo.email}`}
+                  className="text-3xl font-bold uppercase hover:text-gray-400 transition-colors flex items-center gap-4"
+                >
+                  Email ↗
+                </a>
               </div>
-              
-              <div className="group">
-                <label htmlFor="email" className="block font-mono text-xs text-gray-500 mb-2 uppercase tracking-widest">Email</label>
-                <input 
-                  id="email"
-                  type="email" 
-                  name="email"
-                  required
-                  className="w-full bg-transparent border-b border-white/20 py-4 text-xl focus:border-white focus:outline-none transition-colors"
-                  placeholder="ENTER YOUR EMAIL"
-                />
-                <ValidationError prefix="Email" field="email" errors={state.errors} className="text-red-500 text-xs mt-1" />
-              </div>
-
-              <div className="group">
-                <label htmlFor="message" className="block font-mono text-xs text-gray-500 mb-2 uppercase tracking-widest">Message</label>
-                <textarea 
-                  id="message"
-                  name="message"
-                  required
-                  rows={4}
-                  className="w-full bg-transparent border-b border-white/20 py-4 text-xl focus:border-white focus:outline-none transition-colors resize-none"
-                  placeholder="YOUR MESSAGE..."
-                />
-                <ValidationError prefix="Message" field="message" errors={state.errors} className="text-red-500 text-xs mt-1" />
-              </div>
-
-              <button 
-                type="submit" 
-                disabled={state.submitting}
-                className="w-full py-6 bg-white text-black font-bold uppercase tracking-widest hover:bg-gray-200 transition-colors disabled:opacity-50"
-              >
-                {state.submitting ? 'Sending...' : 'Send Message'}
-              </button>
-            </form>
+            </div>
           </div>
         </div>
       </div>

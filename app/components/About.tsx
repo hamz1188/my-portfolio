@@ -24,8 +24,7 @@ export function About() {
               Adapting and changing constantly. Thinking outside the box to overcome every challenge.
             </p>
             <p>
-              I am a <span className="text-white font-normal">hybrid developer</span> combining creativity, agility, and courage. 
-              My work spans web development, mobile apps, and AI integration.
+              I combine software development skills with AI-assisted tools like <span className="text-white font-normal">Claude Code</span> and <span className="text-white font-normal">Cursor IDE</span>.
             </p>
             <p>
               Based in <span className="text-white font-normal">Abu Dhabi</span>, my pragmatism and the wealth of my environment 

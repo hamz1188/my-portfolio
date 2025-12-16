@@ -23,15 +23,15 @@ export const portfolioData = {
     role: 'Software Developer',
     roleSubtitle: 'Building Cross-Platform Apps with AI',
     location: 'Abu Dhabi, UAE',
-    email: 'ahmed@example.com',
+    email: 'ah1188x@gmail.com',
     bio: [
       "I'm a software developer based in Abu Dhabi, UAE, passionate about building digital products that solve real-world problems.",
-      "My journey involves mastering both traditional software engineering principles and the latest AI-assisted workflows, allowing me to deliver robust applications with exceptional speed and quality.",
+      "I combine software development skills with AI-assisted tools like Claude Code and Cursor IDE, allowing me to deliver robust applications with exceptional speed and quality.",
       "When I'm not coding, I'm exploring new technologies, contributing to open source, or refining my craft to build better user experiences."
     ],
     socials: {
-      github: 'https://github.com/yourusername',
-      linkedin: 'https://linkedin.com/in/yourusername',
+      github: 'https://github.com/hamz1188',
+      linkedin: 'https://www.linkedin.com/in/ahmed-ali-406489394',
       twitter: 'https://twitter.com/yourusername',
     }
   },
@@ -48,28 +48,12 @@ export const portfolioData = {
   ] as Skill[],
   projects: [
     {
-      title: 'FitTrack Pro',
-      description: 'Cross-platform mobile application for fitness tracking and workout planning.',
-      tags: ['React Native', 'Firebase', 'Redux'],
+      title: 'Portfolio Website',
+      description: 'Modern personal portfolio built with Next.js, TypeScript, and Tailwind CSS. Features a unique industrial design and markdown blog.',
+      tags: ['Next.js', 'TypeScript', 'Tailwind CSS'],
       color: 'from-blue-500 to-cyan-500',
-      demoLink: '#',
-      codeLink: '#',
-    },
-    {
-      title: 'TaskFlow AI',
-      description: 'Smart task management web app using AI to prioritize your daily workflow.',
-      tags: ['Next.js', 'OpenAI', 'Tailwind'],
-      color: 'from-violet-500 to-purple-500',
-      demoLink: '#',
-      codeLink: '#',
-    },
-    {
-      title: 'ShopHub',
-      description: 'Modern e-commerce dashboard with real-time inventory and analytics.',
-      tags: ['Next.js', 'PostgreSQL', 'Stripe'],
-      color: 'from-orange-500 to-pink-500',
-      demoLink: '#',
-      codeLink: '#',
+      demoLink: 'https://my-portfolio-mocha-theta-79.vercel.app/',
+      codeLink: 'https://github.com/hamz1188/my-portfolio',
     },
   ] as Project[],
 };
