@@ -13,7 +13,12 @@ export function Footer() {
           </p>
         </div>
         
-        <div className="flex gap-8">
+        <div className="flex gap-8 items-center">
+          <a href="/feed.xml" target="_blank" className="text-[var(--color-muted-foreground)] hover:text-[var(--color-primary)] transition-colors" aria-label="RSS Feed">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 11-2 0 1 1 0 012 0z" />
+            </svg>
+          </a>
           <a href={personalInfo.socials.twitter} target="_blank" rel="noopener noreferrer" className="text-[var(--color-muted-foreground)] hover:text-[var(--color-primary)] transition-colors">Twitter</a>
           <a href={personalInfo.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-[var(--color-muted-foreground)] hover:text-[var(--color-primary)] transition-colors">LinkedIn</a>
           <a href={personalInfo.socials.github} target="_blank" rel="noopener noreferrer" className="text-[var(--color-muted-foreground)] hover:text-[var(--color-primary)] transition-colors">GitHub</a>
