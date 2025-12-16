@@ -11,6 +11,7 @@ A modern, high-performance personal portfolio website built with **Next.js 16**,
 - **Modern Design**: Minimalist aesthetic with a refined Slate & Indigo color palette, glassmorphism effects, and a clean grid background.
 - **Centralized Content**: All text, projects, and skills are managed in a single file (`app/data/portfolio.ts`), making updates instant without touching React component code.
 - **Responsive & Accessible**: Fully responsive layout that works perfectly on mobile, tablet, and desktop.
+- **Functional Contact Form**: Integrated with [Formspree](https://formspree.io) for real-time email notifications.
 - **Smooth Animations**: Custom scroll-triggered animations using a lightweight `useScrollAnimation` hook.
 - **Type-Safe**: Built with TypeScript for robust and maintainable code.
 - **Vercel Deployed**: Optimized for production with fast load times.
@@ -21,6 +22,7 @@ A modern, high-performance personal portfolio website built with **Next.js 16**,
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
 - **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
 - **Deployment**: [Vercel](https://vercel.com/)
+- **Forms**: [Formspree](https://formspree.io/)
 - **Font**: Inter (Google Fonts)
 
 ## 📂 Project Structure
@@ -87,7 +89,6 @@ The project is configured for seamless deployment on Vercel:
 
 ## 🔮 Future Improvements
 
-- [ ] Add a functional backend for the Contact form (e.g., using Resend or Formspree).
 - [ ] Implement a blog section for technical writing.
 - [ ] Add unit tests for utility functions and components.
 
