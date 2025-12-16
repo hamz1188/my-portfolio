@@ -48,6 +48,20 @@ export const portfolioData = {
   ] as Skill[],
   projects: [
     {
+      title: 'Fitness Tracker App',
+      description: 'A premium fitness tracking mobile app built with React Native, Expo, and TypeScript. Features smooth 60fps animations, haptic feedback, and a sleek dark theme with Electric Blue accents.',
+      tags: ['React Native', 'Expo', 'TypeScript', 'Reanimated 3'],
+      color: 'from-cyan-400 to-blue-600',
+      highlights: [
+        'Animated Circular Progress Ring with spring physics',
+        'Custom Bottom Tab Navigator with blur effects',
+        'Workout data management with AsyncStorage',
+        'Built with Claude Code & Cursor IDE',
+      ],
+      demoLink: 'https://dist-ruby-eta.vercel.app/',
+      codeLink: 'https://github.com/hamz1188/hamz-fitness-tracker-app',
+    },
+    {
       title: 'Portfolio Website',
       description: 'Modern personal portfolio built with Next.js, TypeScript, and Tailwind CSS. Features a unique industrial design and markdown blog.',
       tags: ['Next.js', 'TypeScript', 'Tailwind CSS'],
