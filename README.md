@@ -4,14 +4,14 @@ A modern, high-performance personal portfolio website built with **Next.js 16**,
 
 Recently redesigned with an **Industrial Brutalist** aesthetic inspired by *G!theimagineers*.
 
-**[Live Demo](https://my-portfolio-ot385egls-duneswear.vercel.app)**
+**[Live Demo](https://my-portfolio-f0wrdwg71-duneswear.vercel.app)**
 
 ![Portfolio Preview](https://via.placeholder.com/1200x600?text=Portfolio+Preview)
 
 ## 🚀 Key Features
 
 - **Industrial Design**: A bold, high-contrast aesthetic featuring a fixed frame layout, sharp typography (`JetBrains Mono`), and a stark black-and-white theme.
-- **Geometrical Animations**: Custom rotating wireframe shapes (circles, cubes, triangles) that float in the background to add technical depth.
+- **Geometrical Animations**: Custom rotating wireframe shapes (SVG triangles, squares, circles) that float in the background to add technical depth.
 - **Centralized Content**: All text, projects, and skills are managed in a single file (`app/data/portfolio.ts`), making updates instant.
 - **Markdown Blog**: A built-in blog system that renders Markdown files from `app/posts/`.
 - **Functional Contact Form**: Integrated with [Formspree](https://formspree.io) for real-time email notifications.
