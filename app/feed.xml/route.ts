@@ -1,6 +1,6 @@
 import RSS from 'rss';
-import { getSortedPostsData } from '../../lib/posts';
-import { portfolioData } from '../../data/portfolio';
+import { getSortedPostsData } from '../lib/posts';
+import { portfolioData } from '../data/portfolio';
 
 export async function GET() {
   const posts = getSortedPostsData();
