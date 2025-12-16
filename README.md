@@ -12,6 +12,7 @@ A modern, high-performance personal portfolio website built with **Next.js 16**,
 - **Centralized Content**: All text, projects, and skills are managed in a single file (`app/data/portfolio.ts`), making updates instant without touching React component code.
 - **Responsive & Accessible**: Fully responsive layout that works perfectly on mobile, tablet, and desktop.
 - **Functional Contact Form**: Integrated with [Formspree](https://formspree.io) for real-time email notifications.
+- **Markdown Blog**: A built-in blog system that renders Markdown files from `app/posts/`, making it easy to share technical insights.
 - **Smooth Animations**: Custom scroll-triggered animations using a lightweight `useScrollAnimation` hook.
 - **Type-Safe**: Built with TypeScript for robust and maintainable code.
 - **Vercel Deployed**: Optimized for production with fast load times.
@@ -23,6 +24,7 @@ A modern, high-performance personal portfolio website built with **Next.js 16**,
 - **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
 - **Deployment**: [Vercel](https://vercel.com/)
 - **Forms**: [Formspree](https://formspree.io/)
+- **Blog**: [React Markdown](https://github.com/remarkjs/react-markdown) & [Gray Matter](https://github.com/jonschlinkert/gray-matter)
 - **Font**: Inter (Google Fonts)
 
 ## 📂 Project Structure
@@ -31,10 +33,13 @@ The project is organized for scalability and ease of use:
 
 ```text
 ├── app/
+│   ├── blog/          # Blog pages (list and single post)
 │   ├── components/    # UI Components (Hero, Navbar, Projects, etc.)
 │   ├── data/          # ⭐️ CONTENT CENTER (Edit this file!)
 │   │   └── portfolio.ts
-│   ├── hooks/         # Custom React hooks (e.g., useScrollAnimation)
+│   ├── lib/           # Utility functions (e.g., blog post fetching)
+│   ├── posts/         # 📝 BLOG POSTS (Add .md files here!)
+│   ├── hooks/         # Custom React hooks
 │   └── globals.css    # Global styles and Tailwind theme variables
 ```
 
@@ -60,23 +65,28 @@ The project is organized for scalability and ease of use:
 
 ## 📝 How to Customize
 
-This portfolio is designed to be **data-driven**. You don't need to edit complex React components to change your content.
+This portfolio is designed to be **data-driven**.
 
-1. Open `app/data/portfolio.ts`.
-2. **Personal Info**: Update the `personalInfo` object with your details (Name, Bio, Social Links).
-3. **Skills**: Add or remove items in the `skills` array.
-4. **Projects**: Add your own work to the `projects` array.
+### 1. Update Portfolio Content
+Open `app/data/portfolio.ts` to edit:
+- **Personal Info**: Name, Bio, Social Links.
+- **Skills**: List of technical skills.
+- **Projects**: Your work showcase.
 
-**Example: Adding a Project**
-```typescript
-{
-  title: 'My New App',
-  description: 'A brief description of what I built.',
-  tags: ['Next.js', 'Supabase'],
-  color: 'from-green-400 to-blue-500', // Tailwind gradient classes
-  demoLink: 'https://...',
-  codeLink: 'https://...'
-}
+### 2. Write a Blog Post
+Create a new file in `app/posts/my-new-post.md`:
+
+```markdown
+---
+title: "My New Post"
+date: "2024-03-21"
+excerpt: "This is a short summary that appears on the blog list."
+tags: ["Next.js", "Tutorial"]
+---
+
+# Hello World
+
+This is the content of my blog post. You can use **markdown** here!
 ```
 
 ## 🚀 Deployment
@@ -89,8 +99,9 @@ The project is configured for seamless deployment on Vercel:
 
 ## 🔮 Future Improvements
 
-- [ ] Implement a blog section for technical writing.
 - [ ] Add unit tests for utility functions and components.
+- [ ] Add RSS feed for the blog.
+- [ ] Implement dark mode toggle persistence.
 
 ---
 
