@@ -1,26 +1,25 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from './components/ThemeProvider';
-import { Navbar } from './components/Navbar';
-import { Footer } from './components/Footer';
+import { FixedFrame } from './components/FixedFrame';
+import { BackgroundShapes } from './components/BackgroundShapes';
 
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-inter',
+  variable: '--font-sans',
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-mono',
 });
 
 export const metadata: Metadata = {
-  title: 'Ahmed Ali - Software Developer',
-  description: 'Software Developer building cross-platform applications with AI-assisted development tools. Based in Abu Dhabi, UAE.',
-  keywords: ['Software Developer', 'Next.js', 'React Native', 'Flutter', 'TypeScript', 'AI Development'],
-  authors: [{ name: 'Ahmed Ali' }],
-  openGraph: {
-    title: 'Ahmed Ali - Software Developer',
-    description: 'Building cross-platform apps with AI',
-    type: 'website',
-  },
+  title: 'Ahmed Ali - Creative Developer',
+  description: 'Creative Developer building digital experiences.',
 };
 
 export default function RootLayout({
@@ -29,14 +28,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} bg-[var(--color-background)] text-[var(--color-foreground)] transition-colors duration-300`}>
-        <ThemeProvider>
-          <Navbar />
-          <main className="min-h-screen pt-16">
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${jetbrainsMono.variable}`}>
+      <body className="bg-black text-white antialiased">
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <FixedFrame />
+          <BackgroundShapes />
+          <main className="relative z-10 pt-20 pb-32 min-h-screen">
             {children}
           </main>
-          <Footer />
         </ThemeProvider>
       </body>
     </html>

@@ -1,83 +1,61 @@
 'use client';
 
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { portfolioData } from '../data/portfolio';
 
 export function Projects() {
-  const { ref, isVisible } = useScrollAnimation(0.1);
-  const { projects, personalInfo } = portfolioData;
+  const { projects } = portfolioData;
 
   return (
-    <section id="projects" className="py-24 bg-[var(--color-background)]">
-      <div className="max-w-7xl mx-auto px-6">
-        <div
-          ref={ref}
-          className={`reveal-on-scroll ${isVisible ? 'is-visible' : ''}`}
-        >
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-            <div>
-              <h2 className="text-3xl md:text-5xl font-bold mb-4 tracking-tight">Featured Projects</h2>
-              <p className="text-[var(--color-muted-foreground)] text-lg max-w-xl">
-                A selection of projects that showcase my expertise in building scalable applications.
-              </p>
-            </div>
-            <a 
-              href={personalInfo.socials.github} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="hidden md:inline-flex items-center font-medium text-[var(--color-primary)] hover:underline"
-            >
-              View Github &rarr;
-            </a>
-          </div>
+    <section id="projects" className="py-32 px-6 md:px-24 border-t border-white/10">
+      <div className="flex flex-col md:flex-row gap-12 md:gap-24">
+        <div className="md:w-1/4">
+          <span className="font-mono text-4xl md:text-6xl text-gray-800">03</span>
+        </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="md:w-3/4">
+          <h2 className="text-5xl md:text-7xl font-bold uppercase mb-16 tracking-tight">
+            Experience
+          </h2>
+
+          <div className="space-y-0">
             {projects.map((project, index) => (
-              <div
-                key={index}
-                className="group relative h-full bg-[var(--color-secondary)]/30 rounded-3xl overflow-hidden border border-[var(--color-muted)] hover:border-[var(--color-primary)]/20 transition-all duration-300 hover:-translate-y-1"
+              <div 
+                key={index} 
+                className="group border-t border-white/10 py-12 transition-all hover:bg-white/5"
               >
-                <div className={`h-48 bg-gradient-to-br ${project.color} opacity-80 group-hover:opacity-100 transition-opacity relative p-6 flex flex-col justify-end`}>
-                  <h3 className="text-2xl font-bold text-white mb-2 translate-y-2 group-hover:translate-y-0 transition-transform">{project.title}</h3>
-                </div>
-                <div className="p-8">
-                  <p className="text-[var(--color-muted-foreground)] mb-6 leading-relaxed">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.tags.map((tag) => (
-                      <span key={tag} className="px-3 py-1 text-xs font-medium rounded-full bg-[var(--color-background)] border border-[var(--color-muted)] text-[var(--color-foreground)]">
-                        {tag}
-                      </span>
-                    ))}
+                <div className="flex flex-col md:flex-row justify-between md:items-center gap-6">
+                  <div>
+                    <h3 className="text-3xl md:text-5xl font-bold uppercase mb-2 group-hover:translate-x-4 transition-transform duration-300">
+                      {project.title}
+                    </h3>
+                    <div className="flex gap-2 text-gray-500 font-mono text-sm group-hover:translate-x-4 transition-transform duration-300 delay-75">
+                      {project.tags.map((tag, i) => (
+                        <span key={tag}>
+                          {tag} {i < project.tags.length - 1 && '/'}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                   
-                  <div className="flex gap-4 mt-auto">
-                    {project.demoLink && (
-                      <a href={project.demoLink} className="text-sm font-medium text-[var(--color-primary)] hover:underline">
-                        Live Demo
-                      </a>
-                    )}
-                    {project.codeLink && (
-                      <a href={project.codeLink} className="text-sm font-medium text-[var(--color-primary)] hover:underline">
-                        View Code
-                      </a>
-                    )}
+                  <div className="max-w-md text-gray-400 group-hover:text-white transition-colors">
+                    <p className="mb-4">{project.description}</p>
+                    <div className="flex gap-6 uppercase font-bold text-sm tracking-widest">
+                      {project.demoLink && (
+                        <a href={project.demoLink} className="hover:underline">
+                          Live Demo ↗
+                        </a>
+                      )}
+                      {project.codeLink && (
+                        <a href={project.codeLink} className="hover:underline">
+                          Code ↗
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
             ))}
-          </div>
-
-          <div className="mt-12 text-center md:hidden">
-            <a 
-              href={personalInfo.socials.github}
-              target="_blank"
-              rel="noopener noreferrer" 
-              className="font-medium text-[var(--color-primary)] hover:underline"
-            >
-              View all projects &rarr;
-            </a>
+            <div className="border-t border-white/10" />
           </div>
         </div>
       </div>

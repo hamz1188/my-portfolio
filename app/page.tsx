@@ -1,3 +1,4 @@
+import { Navbar } from './components/Navbar'; // We are removing the old navbar, but wait - the new design doesn't use a standard navbar.
 import { Hero } from './components/Hero';
 import { About } from './components/About';
 import { Skills } from './components/Skills';
