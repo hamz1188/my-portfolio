@@ -1,5 +1,6 @@
 import { getPostData, getSortedPostsData } from '../../lib/posts';
 import ReactMarkdown from 'react-markdown';
+import Link from 'next/link';
 
 // Generate static params for all blog posts
 export async function generateStaticParams() {
@@ -17,6 +18,19 @@ export default async function Post({ params }: { params: { slug: string } }) {
   return (
     <article className="py-24 bg-[var(--color-background)] min-h-screen">
       <div className="max-w-3xl mx-auto px-6">
+        {/* Back to Blog Link */}
+        <div className="mb-8 animate-fade-in-up">
+          <Link 
+            href="/blog" 
+            className="inline-flex items-center text-sm font-medium text-[var(--color-muted-foreground)] hover:text-[var(--color-primary)] transition-colors"
+          >
+            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Back to Blog
+          </Link>
+        </div>
+
         <header className="mb-12 text-center animate-fade-in-up">
           <div className="flex gap-2 justify-center mb-6">
             {postData.tags.map(tag => (
@@ -33,7 +47,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
           </time>
         </header>
 
-        <div className="prose prose-lg dark:prose-invert max-w-none mx-auto">
+        <div className="prose prose-lg dark:prose-invert max-w-none mx-auto animate-fade-in-up delay-200">
           <ReactMarkdown>
             {postData.content}
           </ReactMarkdown>
@@ -42,4 +56,3 @@ export default async function Post({ params }: { params: { slug: string } }) {
     </article>
   );
 }
-
