@@ -2,7 +2,9 @@
 
 A modern, high-performance personal portfolio website built with **Next.js 16**, **TypeScript**, and **Tailwind CSS**. Designed to be clean, responsive, and easy to maintain.
 
-![Portfolio Preview](https://via.placeholder.com/1200x600?text=Portfolio+Preview+Coming+Soon)
+**[Live Demo](https://my-portfolio-pta15p36a-duneswear.vercel.app)**
+
+![Portfolio Preview](https://via.placeholder.com/1200x600?text=Portfolio+Preview)
 
 ## 🚀 Key Features
 
@@ -11,12 +13,14 @@ A modern, high-performance personal portfolio website built with **Next.js 16**,
 - **Responsive & Accessible**: Fully responsive layout that works perfectly on mobile, tablet, and desktop.
 - **Smooth Animations**: Custom scroll-triggered animations using a lightweight `useScrollAnimation` hook.
 - **Type-Safe**: Built with TypeScript for robust and maintainable code.
+- **Vercel Deployed**: Optimized for production with fast load times.
 
 ## 🛠️ Tech Stack
 
 - **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
 - **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **Deployment**: [Vercel](https://vercel.com/)
 - **Font**: Inter (Google Fonts)
 
 ## 📂 Project Structure
@@ -73,6 +77,14 @@ This portfolio is designed to be **data-driven**. You don't need to edit complex
 }
 ```
 
+## 🚀 Deployment
+
+The project is configured for seamless deployment on Vercel:
+
+1. Install Vercel CLI: `npm i -g vercel`
+2. Run `vercel deploy`
+3. Follow the prompts!
+
 ## 🔮 Future Improvements
 
 - [ ] Add a functional backend for the Contact form (e.g., using Resend or Formspree).
@@ -82,4 +94,3 @@ This portfolio is designed to be **data-driven**. You don't need to edit complex
 ---
 
 Built with ❤️ by [Hamz](https://github.com/hamz1188)
-
