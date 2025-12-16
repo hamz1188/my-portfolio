@@ -11,7 +11,7 @@ export async function GET() {
     description: "Thoughts, tutorials, and insights on software development.",
     site_url: siteUrl,
     feed_url: `${siteUrl}/feed.xml`,
-    image: `${siteUrl}/favicon.ico`,
+    image_url: `${siteUrl}/favicon.ico`,
     pubDate: new Date(),
     copyright: `All rights reserved ${new Date().getFullYear()}, ${portfolioData.personalInfo.name}`,
   });
