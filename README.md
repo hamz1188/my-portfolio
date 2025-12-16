@@ -16,6 +16,7 @@ A modern, high-performance personal portfolio website built with **Next.js 16**,
 - **Smooth Animations**: Custom scroll-triggered animations using a lightweight `useScrollAnimation` hook.
 - **Type-Safe**: Built with TypeScript for robust and maintainable code.
 - **Vercel Deployed**: Optimized for production with fast load times.
+- **Unit Tested**: Includes comprehensive Jest and React Testing Library setup.
 
 ## 🛠️ Tech Stack
 
@@ -25,6 +26,7 @@ A modern, high-performance personal portfolio website built with **Next.js 16**,
 - **Deployment**: [Vercel](https://vercel.com/)
 - **Forms**: [Formspree](https://formspree.io/)
 - **Blog**: [React Markdown](https://github.com/remarkjs/react-markdown) & [Gray Matter](https://github.com/jonschlinkert/gray-matter)
+- **Testing**: [Jest](https://jestjs.io/) & [React Testing Library](https://testing-library.com/)
 - **Font**: Inter (Google Fonts)
 
 ## 📂 Project Structure
@@ -41,6 +43,7 @@ The project is organized for scalability and ease of use:
 │   ├── posts/         # 📝 BLOG POSTS (Add .md files here!)
 │   ├── hooks/         # Custom React hooks
 │   └── globals.css    # Global styles and Tailwind theme variables
+├── __tests__/         # Unit tests
 ```
 
 ## ⚡️ Getting Started
@@ -62,6 +65,13 @@ The project is organized for scalability and ease of use:
    ```
 
 4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## 🧪 Running Tests
+
+To run the unit tests:
+```bash
+npm test
+```
 
 ## 📝 How to Customize
 
@@ -99,7 +109,6 @@ The project is configured for seamless deployment on Vercel:
 
 ## 🔮 Future Improvements
 
-- [ ] Add unit tests for utility functions and components.
 - [ ] Add RSS feed for the blog.
 - [ ] Implement dark mode toggle persistence.
 
