@@ -24,10 +24,10 @@ export function Contact() {
                 From management to electrics | from pixels to lumens. This is what we love to do.
               </p>
               <a 
-                href="mailto:ahmed@example.com" 
+                href="mailto:ah1188x@gmail.com" 
                 className="text-2xl md:text-4xl font-bold underline decoration-1 underline-offset-8 hover:text-gray-400 transition-colors"
               >
-                ahmed@example.com
+                ah1188x@gmail.com
               </a>
             </div>
 
