@@ -58,7 +58,7 @@ export const portfolioData = {
         'Workout data management with AsyncStorage',
         'Built with Claude Code & Cursor IDE',
       ],
-      demoLink: 'https://dist-ruby-eta.vercel.app/',
+      demoLink: 'https://hamz-fitness-tracker-app.vercel.app/',
       codeLink: 'https://github.com/hamz1188/hamz-fitness-tracker-app',
     },
     {
