@@ -1,4 +1,4 @@
-import { ShieldHero } from './components/ShieldHero';
+import { HeroSection } from './components/HeroSection';
 import { MarqueeSection } from './components/MarqueeSection';
 import { HorizontalGallery } from './components/HorizontalGallery';
 import { AboutSection } from './components/AboutSection';
@@ -11,7 +11,7 @@ import { Footer } from './components/Footer';
 export default function Home() {
   return (
     <>
-      <ShieldHero />
+      <HeroSection />
       <MarqueeSection text="Creative Developer" />
       <HorizontalGallery />
       <AboutSection />
