@@ -1,18 +1,24 @@
-import { Navbar } from './components/Navbar'; // We are removing the old navbar, but wait - the new design doesn't use a standard navbar.
-import { Hero } from './components/Hero';
-import { About } from './components/About';
-import { Skills } from './components/Skills';
-import { Projects } from './components/Projects';
-import { Contact } from './components/Contact';
+import { HeroSection } from './components/HeroSection';
+import { MarqueeSection } from './components/MarqueeSection';
+import { HorizontalGallery } from './components/HorizontalGallery';
+import { AboutSection } from './components/AboutSection';
+import { ProcessSection } from './components/ProcessSection';
+import { VideoShowreel } from './components/VideoShowreel';
+import { ClientLogos } from './components/ClientLogos';
+import { Footer } from './components/Footer';
 
 export default function Home() {
   return (
     <>
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Contact />
+      <HeroSection />
+      <MarqueeSection text="Creative Developer" />
+      <HorizontalGallery />
+      <AboutSection />
+      <MarqueeSection text="Design & Development" reverse />
+      <ProcessSection />
+      <VideoShowreel />
+      <ClientLogos />
+      <Footer />
     </>
   );
 }

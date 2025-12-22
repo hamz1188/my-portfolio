@@ -50,7 +50,7 @@ export const portfolioData = {
   projects: [
     {
       title: 'Desert Survivors',
-      description: 'A Vampire Survivors-style roguelike survival game for iOS. Fight waves of mythical Arabian creatures in an endless desert with auto-attacking weapons, leveling, and meta-progression.',
+      description: 'Roguelike survival game for iOS. Survive waves of Arabian mythical creatures with auto-attacks, level-ups, and 8 playable characters. Built entirely with AI assistance.',
       tags: ['Swift', 'SpriteKit', 'iOS', 'Game Dev'],
       color: 'from-amber-400 to-orange-600',
       highlights: [
@@ -65,8 +65,8 @@ export const portfolioData = {
       codeLink: 'https://github.com/hamz1188/DesertSurvivors',
     },
     {
-      title: 'Fitness Tracker App',
-      description: 'A premium fitness tracking mobile app built with React Native, Expo, and TypeScript. Features smooth 60fps animations, haptic feedback, and a sleek dark theme with Electric Blue accents.',
+      title: 'Fitness Tracker',
+      description: 'Mobile fitness app with buttery-smooth animations and haptic feedback. Track workouts, visualize progress, look good doing it.',
       tags: ['React Native', 'Expo', 'TypeScript', 'Reanimated 3'],
       color: 'from-cyan-400 to-blue-600',
       highlights: [
@@ -79,9 +79,9 @@ export const portfolioData = {
       codeLink: 'https://github.com/hamz1188/hamz-fitness-tracker-app',
     },
     {
-      title: 'Portfolio Website',
-      description: 'Modern personal portfolio built with Next.js, TypeScript, and Tailwind CSS. Features a unique industrial design and markdown blog.',
-      tags: ['Next.js', 'TypeScript', 'Tailwind CSS'],
+      title: 'This Website',
+      description: "You're looking at it. Next.js, TypeScript, GSAP animations, and a lot of attention to detail.",
+      tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'GSAP'],
       color: 'from-blue-500 to-cyan-500',
       demoLink: 'https://my-portfolio-mocha-theta-79.vercel.app/',
       codeLink: 'https://github.com/hamz1188/my-portfolio',
