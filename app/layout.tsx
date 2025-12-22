@@ -4,7 +4,6 @@ import './globals.css';
 import { ThemeProvider } from './components/ThemeProvider';
 import { Navigation } from './components/Navigation';
 import { FloatingNav } from './components/FloatingNav';
-import { CustomCursor } from './components/CustomCursor';
 import { SmoothScrollProvider } from './components/SmoothScrollProvider';
 
 const inter = Inter({
@@ -44,7 +43,6 @@ export default function RootLayout({
       <body className="bg-[var(--color-background)] text-[var(--color-foreground)] antialiased overflow-x-hidden">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <SmoothScrollProvider>
-            <CustomCursor />
             <Navigation />
             <FloatingNav />
             <main className="relative">
