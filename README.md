@@ -1,97 +1,117 @@
-# My Portfolio
+# Ahmed Ali - Portfolio
 
-A modern, high-performance personal portfolio website built with **Next.js 16**, **TypeScript**, and **Tailwind CSS**.
+A modern, animation-rich portfolio website built with **Next.js 16**, **TypeScript**, **Tailwind CSS**, and **GSAP**.
 
-Recently redesigned with an **Industrial Brutalist** aesthetic inspired by *G!theimagineers*.
+Inspired by [Wokine.com](https://wokine.com) with smooth scroll animations, horizontal galleries, and dynamic interactions.
 
-**[Live Demo](https://my-portfolio-f0wrdwg71-duneswear.vercel.app)**
+**[Live Demo](https://my-portfolio-mocha-theta-79.vercel.app/)**
 
-![Portfolio Preview](https://via.placeholder.com/1200x600?text=Portfolio+Preview)
+## Features
 
-## 🚀 Key Features
+### Animations & Interactions
+- **Smooth Scrolling**: Lenis-powered butter-smooth scroll
+- **GSAP ScrollTrigger**: Scroll-linked animations throughout
+- **Horizontal Gallery**: Pinned horizontal scroll for projects
+- **Text Reveals**: Split-text animations with staggered word/character reveals
+- **Count-Up Stats**: Animated number counters triggered on scroll
+- **Floating Navigation**: Bottom pill nav with section-aware labels
+- **3D Animated Blob**: Organic shape with scroll-linked rotation
+- **Progress Indicators**: Visual scroll progress on horizontal sections
 
-- **Industrial Design**: A bold, high-contrast aesthetic featuring a fixed frame layout, sharp typography (`JetBrains Mono`), and a stark black-and-white theme.
-- **Geometrical Animations**: Custom rotating wireframe shapes (SVG triangles, squares, circles) that float in the background to add technical depth.
-- **Centralized Content**: All text, projects, and skills are managed in a single file (`app/data/portfolio.ts`), making updates instant.
-- **Markdown Blog**: A built-in blog system that renders Markdown files from `app/posts/`.
-- **Functional Contact Form**: Integrated with [Formspree](https://formspree.io) for real-time email notifications.
-- **Responsive & Accessible**: Fully responsive layout that adapts to mobile while maintaining the "fixed frame" look.
-- **RSS Feed**: Automatically generated XML feed for blog posts.
-- **Type-Safe**: Built with TypeScript for robust code.
+### Design
+- **Color Palette**: Lime green (#dcf48d) on charcoal (#181717)
+- **Typography**: Playfair Display (serif) + Inter (sans-serif)
+- **Auto Dark/Light Mode**: Follows system preference
+- **Glassmorphism**: Backdrop blur effects on cards and nav
+- **Responsive**: Mobile-first design
 
-## 🛠️ Tech Stack
+### Content
+- **Centralized Data**: All content in `app/data/portfolio.ts`
+- **Markdown Blog**: Blog posts from `app/posts/`
+- **RSS Feed**: Auto-generated XML feed
 
-- **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
-- **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
-- **Deployment**: [Vercel](https://vercel.com/)
-- **Forms**: [Formspree](https://formspree.io/)
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **Fonts**: [Inter](https://fonts.google.com/specimen/Inter) & [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono)
+## Tech Stack
 
-## 📂 Project Structure
+| Category | Technology |
+|----------|------------|
+| Framework | [Next.js 16](https://nextjs.org/) (App Router) |
+| Language | [TypeScript](https://www.typescriptlang.org/) |
+| Styling | [Tailwind CSS v4](https://tailwindcss.com/) |
+| Animations | [GSAP](https://greensock.com/gsap/) + ScrollTrigger |
+| Smooth Scroll | [Lenis](https://lenis.studiofreight.com/) |
+| Theme | [next-themes](https://github.com/pacocoursey/next-themes) |
+| Deployment | [Vercel](https://vercel.com/) |
 
-```text
-├── app/
-│   ├── blog/          # Blog pages
-│   ├── components/    # UI Components (Hero, FixedFrame, BackgroundShapes, etc.)
-│   ├── data/          # ⭐️ CONTENT CENTER (Edit this file!)
-│   │   └── portfolio.ts
-│   ├── lib/           # Utility functions
-│   ├── posts/         # 📝 BLOG POSTS (Add .md files here!)
-│   └── globals.css    # Global styles (Tailwind theme & animations)
+## Project Structure
+
+```
+app/
+├── components/        # UI Components
+│   ├── HeroSection.tsx
+│   ├── AboutSection.tsx
+│   ├── HorizontalGallery.tsx
+│   ├── ProcessSection.tsx
+│   ├── FloatingNav.tsx
+│   ├── AnimatedBlob.tsx
+│   ├── SplitText.tsx
+│   ├── RevealOnScroll.tsx
+│   ├── CountUp.tsx
+│   ├── ScrollText.tsx
+│   └── ...
+├── data/
+│   └── portfolio.ts   # All portfolio content
+├── posts/             # Markdown blog posts
+└── globals.css        # Global styles & animations
 ```
 
-## ⚡️ Getting Started
+## Getting Started
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/hamz1188/my-portfolio.git
-   cd my-portfolio
-   ```
+```bash
+# Clone
+git clone https://github.com/hamz1188/my-portfolio.git
+cd my-portfolio
 
-2. **Install dependencies**:
-   ```bash
-   npm install
-   ```
+# Install
+npm install
 
-3. **Run the development server**:
-   ```bash
-   npm run dev
-   ```
+# Run dev server
+npm run dev
+```
 
-4. Open [http://localhost:3000](http://localhost:3000).
+Open [http://localhost:3000](http://localhost:3000)
 
-## 📝 How to Customize
+## Customization
 
-### 1. Update Portfolio Content
-Open `app/data/portfolio.ts` to edit:
-- **Personal Info**: Name, Bio, Social Links.
-- **Skills**: List of technical skills.
-- **Projects**: Your work showcase.
+### Portfolio Content
+Edit `app/data/portfolio.ts`:
+- Personal info (name, bio, socials)
+- Projects (title, description, tags, links)
+- Skills
 
-### 2. Write a Blog Post
-Create a new file in `app/posts/my-new-post.md`:
+### Blog Posts
+Add markdown files to `app/posts/`:
 
 ```markdown
 ---
-title: "My New Post"
+title: "Post Title"
 date: "2024-03-21"
-excerpt: "This is a short summary."
-tags: ["Design", "Brutalism"]
+excerpt: "Short summary"
+tags: ["Tag1", "Tag2"]
 ---
 
-# Hello World
-This is my post content.
+Post content here...
 ```
 
-## 🚀 Deployment
+## Deployment
 
-The project is configured for seamless deployment on Vercel:
+```bash
+# Install Vercel CLI
+npm i -g vercel
 
-1. Install Vercel CLI: `npm i -g vercel`
-2. Run `vercel deploy`
+# Deploy
+vercel
+```
 
 ---
 
-Built with ❤️ by [Hamz](https://github.com/hamz1188)
+Built by [Ahmed Ali](https://github.com/hamz1188)
