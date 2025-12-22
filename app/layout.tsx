@@ -5,6 +5,7 @@ import { ThemeProvider } from './components/ThemeProvider';
 import { Navigation } from './components/Navigation';
 import { FloatingNav } from './components/FloatingNav';
 import { SmoothScrollProvider } from './components/SmoothScrollProvider';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -48,6 +49,7 @@ export default function RootLayout({
             <main className="relative">
               {children}
             </main>
+            <SpeedInsights />
           </SmoothScrollProvider>
         </ThemeProvider>
       </body>
