@@ -48,6 +48,21 @@ export const portfolioData = {
   ] as Skill[],
   projects: [
     {
+      title: 'Desert Survivors',
+      description: 'A Vampire Survivors-style roguelike survival game for iOS. Fight waves of mythical Arabian creatures in an endless desert with auto-attacking weapons, leveling, and meta-progression.',
+      tags: ['Swift', 'SpriteKit', 'iOS', 'Game Dev'],
+      color: 'from-amber-400 to-orange-600',
+      highlights: [
+        '8 playable characters with unique abilities',
+        '12 weapons with awakened evolution forms',
+        'Procedural 4000x4000 desert world',
+        'AI-generated pixel art via PixelLab',
+        'Built entirely with Claude Code',
+      ],
+      demoLink: 'https://desert-survivors.vercel.app/',
+      codeLink: 'https://github.com/hamz1188/DesertSurvivors',
+    },
+    {
       title: 'Fitness Tracker App',
       description: 'A premium fitness tracking mobile app built with React Native, Expo, and TypeScript. Features smooth 60fps animations, haptic feedback, and a sleek dark theme with Electric Blue accents.',
       tags: ['React Native', 'Expo', 'TypeScript', 'Reanimated 3'],
