@@ -12,6 +12,7 @@ export interface Project {
   techStack?: string[];
   image?: string;
   images?: string[];
+  type?: 'mobile' | 'web';
 }
 
 export interface Skill {
@@ -55,7 +56,8 @@ export const portfolioData = {
       description: 'Roguelike survival game for iOS. Survive waves of Arabian mythical creatures with auto-attacks, level-ups, and 8 playable characters. Built entirely with AI assistance.',
       tags: ['Swift', 'SpriteKit', 'iOS', 'Game Dev'],
       color: 'from-amber-400 to-orange-600',
-      image: '/images/projects/desert-survivors/desert-survivors-1.png',
+      type: 'mobile',
+      image: '/images/projects/desert-survivors/desert-survivors-2.png',
       images: [
         '/images/projects/desert-survivors/desert-survivors-1.png',
         '/images/projects/desert-survivors/desert-survivors-2.png',
@@ -80,7 +82,8 @@ export const portfolioData = {
       description: 'Mobile fitness app with buttery-smooth animations and haptic feedback. Track workouts, visualize progress, look good doing it.',
       tags: ['React Native', 'Expo', 'TypeScript', 'Reanimated 3'],
       color: 'from-cyan-400 to-blue-600',
-      image: '/images/projects/fitness-tracker/fitness-tracker-1.png',
+      type: 'mobile',
+      image: '/images/projects/fitness-tracker/fitness-tracker-6.png',
       images: [
         '/images/projects/fitness-tracker/fitness-tracker-1.png',
         '/images/projects/fitness-tracker/fitness-tracker-2.png',
@@ -105,6 +108,7 @@ export const portfolioData = {
       description: "You're looking at it. Next.js, TypeScript, GSAP animations, and a lot of attention to detail.",
       tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'GSAP'],
       color: 'from-blue-500 to-cyan-500',
+      type: 'web',
       image: '/images/projects/portfolio/portfolio.png',
       demoLink: 'https://hameli.io',
       codeLink: 'https://github.com/hamz1188/my-portfolio',

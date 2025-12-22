@@ -8,6 +8,31 @@ import { portfolioData } from '../data/portfolio';
 
 gsap.registerPlugin(ScrollTrigger);
 
+// iPhone Frame Component
+function IPhoneFrame({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="relative mx-auto" style={{ width: '280px', height: '570px' }}>
+      {/* iPhone outer frame */}
+      <div className="absolute inset-0 bg-[#1a1a1a] rounded-[50px] shadow-2xl">
+        {/* Screen bezel */}
+        <div className="absolute inset-[8px] bg-black rounded-[42px] overflow-hidden">
+          {/* Dynamic Island */}
+          <div className="absolute top-3 left-1/2 -translate-x-1/2 w-[100px] h-[32px] bg-black rounded-full z-10" />
+          {/* Screen content */}
+          <div className="absolute inset-0">
+            {children}
+          </div>
+        </div>
+      </div>
+      {/* Side button */}
+      <div className="absolute right-[-2px] top-[120px] w-[3px] h-[60px] bg-[#2a2a2a] rounded-r-sm" />
+      {/* Volume buttons */}
+      <div className="absolute left-[-2px] top-[100px] w-[3px] h-[30px] bg-[#2a2a2a] rounded-l-sm" />
+      <div className="absolute left-[-2px] top-[140px] w-[3px] h-[50px] bg-[#2a2a2a] rounded-l-sm" />
+    </div>
+  );
+}
+
 export function HorizontalGallery() {
   const sectionRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -20,7 +45,6 @@ export function HorizontalGallery() {
     const totalWidth = track.scrollWidth - window.innerWidth;
     const progressBar = sectionRef.current.querySelector('.progress-bar');
 
-    // Horizontal scroll animation
     const scrollTrigger = ScrollTrigger.create({
       trigger: sectionRef.current,
       start: 'top top',
@@ -29,10 +53,7 @@ export function HorizontalGallery() {
       pin: true,
       anticipatePin: 1,
       onUpdate: (self) => {
-        // Animate the track
         gsap.set(track, { x: -totalWidth * self.progress });
-
-        // Animate progress bar
         if (progressBar) {
           gsap.set(progressBar, { scaleX: self.progress });
         }
@@ -66,84 +87,95 @@ export function HorizontalGallery() {
       {/* Horizontal track */}
       <div
         ref={trackRef}
-        className="flex items-center h-full gap-8 pl-[var(--container-padding)] pt-32"
+        className="flex items-center h-full gap-12 pl-[var(--container-padding)] pt-20"
         style={{ width: 'max-content' }}
       >
         {projects.map((project, index) => (
           <article
             key={index}
-            className="gallery-item flex-shrink-0 w-[70vw] max-w-[900px] h-[60vh] relative group"
+            className="gallery-item flex-shrink-0 w-[85vw] max-w-[1000px] h-[75vh] relative group"
           >
             <a
               href={project.demoLink || project.codeLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full h-full relative overflow-hidden bg-[var(--color-muted)]"
-              style={{
-                clipPath: index % 2 === 0
-                  ? 'polygon(0 5%, 5% 0, 95% 0, 100% 5%, 100% 95%, 95% 100%, 5% 100%, 0 95%)'
-                  : 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
-                borderRadius: '24px',
-              }}
+              className="block w-full h-full relative overflow-hidden rounded-3xl bg-[var(--color-background)]"
             >
-              {/* Project image */}
-              {project.image ? (
-                <div className="gallery-image absolute inset-0 w-[120%] h-full">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover object-center"
-                    sizes="(max-width: 768px) 90vw, 70vw"
-                  />
-                </div>
-              ) : (
-                <div className="gallery-image absolute inset-0 w-[120%] h-full bg-gradient-to-br from-[var(--color-accent)]/20 to-[var(--color-accent-dark)]/20 flex items-center justify-center">
-                  <span className="text-[8rem] font-serif text-white/10">
-                    0{index + 1}
-                  </span>
-                </div>
-              )}
+              {/* Background gradient */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-20`} />
 
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-              {/* Content */}
-              <div className="absolute bottom-0 left-0 right-0 p-8">
-                <div className="flex items-end justify-between">
-                  <div>
-                    <div className="flex gap-3 mb-4">
-                      {project.tags.slice(0, 3).map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-3 py-1 text-xs bg-white/10 rounded-full backdrop-blur-sm"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    <h3 className="text-title text-white">{project.title}</h3>
-                    <p className="text-sm text-white/70 mt-2 max-w-md">
-                      {project.description}
-                    </p>
+              {/* Image area - top portion */}
+              <div className="absolute top-0 left-0 right-0 h-[65%] flex items-center justify-center p-8">
+                {project.type === 'mobile' && project.image ? (
+                  <IPhoneFrame>
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover"
+                      sizes="280px"
+                    />
+                  </IPhoneFrame>
+                ) : project.image ? (
+                  <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover object-top"
+                      sizes="(max-width: 768px) 90vw, 60vw"
+                    />
                   </div>
+                ) : (
+                  <div className="w-full h-full rounded-2xl bg-gradient-to-br from-[var(--color-accent)]/20 to-[var(--color-accent-dark)]/20 flex items-center justify-center">
+                    <span className="text-[8rem] font-serif text-white/10">
+                      0{index + 1}
+                    </span>
+                  </div>
+                )}
+              </div>
 
-                  {/* Arrow */}
-                  <div className="w-16 h-16 rounded-full border border-white/30 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300">
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
-                    >
-                      <path d="M7 17L17 7M17 7H7M17 7V17" />
-                    </svg>
+              {/* Content area - bottom portion with dark background */}
+              <div className="absolute bottom-0 left-0 right-0 h-[40%] bg-gradient-to-t from-[var(--color-background)] via-[var(--color-background)]/95 to-transparent">
+                <div className="absolute bottom-0 left-0 right-0 p-8">
+                  <div className="flex items-end justify-between">
+                    <div>
+                      <div className="flex gap-3 mb-4">
+                        {project.tags.slice(0, 3).map((tag) => (
+                          <span
+                            key={tag}
+                            className="px-3 py-1 text-xs bg-white/10 rounded-full backdrop-blur-sm text-white/80"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                      <h3 className="text-title text-[var(--color-foreground)]">{project.title}</h3>
+                      <p className="text-sm text-[var(--color-foreground-muted)] mt-2 max-w-md">
+                        {project.description}
+                      </p>
+                    </div>
+
+                    {/* Arrow */}
+                    <div className="w-16 h-16 rounded-full border border-[var(--color-border)] flex items-center justify-center group-hover:bg-[var(--color-accent)] group-hover:border-[var(--color-accent)] transition-all duration-300">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform text-[var(--color-foreground)] group-hover:text-[var(--color-background)]"
+                      >
+                        <path d="M7 17L17 7M17 7H7M17 7V17" />
+                      </svg>
+                    </div>
                   </div>
                 </div>
               </div>
+
+              {/* Hover overlay */}
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 pointer-events-none" />
             </a>
           </article>
         ))}
