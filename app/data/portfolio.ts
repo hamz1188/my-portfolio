@@ -7,6 +7,7 @@ export interface Project {
   icon?: string;
   highlights?: string[];
   demoLink?: string;
+  demoLabel?: string;
   codeLink?: string;
   techStack?: string[];
 }
@@ -60,6 +61,7 @@ export const portfolioData = {
         'Built entirely with Claude Code',
       ],
       demoLink: 'https://desert-survivors.vercel.app/',
+      demoLabel: 'More',
       codeLink: 'https://github.com/hamz1188/DesertSurvivors',
     },
     {

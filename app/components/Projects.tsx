@@ -42,7 +42,7 @@ export function Projects() {
                     <div className="flex gap-6 uppercase font-bold text-sm tracking-widest">
                       {project.demoLink && (
                         <a href={project.demoLink} target="_blank" rel="noopener noreferrer" className="hover:underline">
-                          Live Demo ↗
+                          {project.demoLabel || 'Live Demo'} ↗
                         </a>
                       )}
                       {project.codeLink && (
