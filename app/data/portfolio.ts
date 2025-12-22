@@ -10,6 +10,8 @@ export interface Project {
   demoLabel?: string;
   codeLink?: string;
   techStack?: string[];
+  image?: string;
+  images?: string[];
 }
 
 export interface Skill {
@@ -53,6 +55,15 @@ export const portfolioData = {
       description: 'Roguelike survival game for iOS. Survive waves of Arabian mythical creatures with auto-attacks, level-ups, and 8 playable characters. Built entirely with AI assistance.',
       tags: ['Swift', 'SpriteKit', 'iOS', 'Game Dev'],
       color: 'from-amber-400 to-orange-600',
+      image: '/images/projects/desert-survivors/desert-survivors-1.png',
+      images: [
+        '/images/projects/desert-survivors/desert-survivors-1.png',
+        '/images/projects/desert-survivors/desert-survivors-2.png',
+        '/images/projects/desert-survivors/desert-survivors-3.png',
+        '/images/projects/desert-survivors/desert-survivors-4.png',
+        '/images/projects/desert-survivors/desert-survivors-5.png',
+        '/images/projects/desert-survivors/desert-survivors-6.png',
+      ],
       highlights: [
         '8 playable characters with unique abilities',
         '12 weapons with awakened evolution forms',
@@ -69,6 +80,17 @@ export const portfolioData = {
       description: 'Mobile fitness app with buttery-smooth animations and haptic feedback. Track workouts, visualize progress, look good doing it.',
       tags: ['React Native', 'Expo', 'TypeScript', 'Reanimated 3'],
       color: 'from-cyan-400 to-blue-600',
+      image: '/images/projects/fitness-tracker/fitness-tracker-1.png',
+      images: [
+        '/images/projects/fitness-tracker/fitness-tracker-1.png',
+        '/images/projects/fitness-tracker/fitness-tracker-2.png',
+        '/images/projects/fitness-tracker/fitness-tracker-3.png',
+        '/images/projects/fitness-tracker/fitness-tracker-4.png',
+        '/images/projects/fitness-tracker/fitness-tracker-5.png',
+        '/images/projects/fitness-tracker/fitness-tracker-6.png',
+        '/images/projects/fitness-tracker/fitness-tracker-7.png',
+        '/images/projects/fitness-tracker/fitness-tracker-8.png',
+      ],
       highlights: [
         'Animated Circular Progress Ring with spring physics',
         'Custom Bottom Tab Navigator with blur effects',
@@ -83,7 +105,8 @@ export const portfolioData = {
       description: "You're looking at it. Next.js, TypeScript, GSAP animations, and a lot of attention to detail.",
       tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'GSAP'],
       color: 'from-blue-500 to-cyan-500',
-      demoLink: 'https://my-portfolio-mocha-theta-79.vercel.app/',
+      image: '/images/projects/portfolio/portfolio.png',
+      demoLink: 'https://hameli.io',
       codeLink: 'https://github.com/hamz1188/my-portfolio',
     },
   ] as Project[],

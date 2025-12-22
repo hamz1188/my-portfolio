@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { portfolioData } from '../data/portfolio';
@@ -85,14 +86,24 @@ export function HorizontalGallery() {
                 borderRadius: '24px',
               }}
             >
-              {/* Project image placeholder */}
-              <div
-                className="gallery-image absolute inset-0 w-[120%] h-full bg-gradient-to-br from-[var(--color-accent)]/20 to-[var(--color-accent-dark)]/20 flex items-center justify-center"
-              >
-                <span className="text-[8rem] font-serif text-white/10">
-                  0{index + 1}
-                </span>
-              </div>
+              {/* Project image */}
+              {project.image ? (
+                <div className="gallery-image absolute inset-0 w-[120%] h-full">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover object-center"
+                    sizes="(max-width: 768px) 90vw, 70vw"
+                  />
+                </div>
+              ) : (
+                <div className="gallery-image absolute inset-0 w-[120%] h-full bg-gradient-to-br from-[var(--color-accent)]/20 to-[var(--color-accent-dark)]/20 flex items-center justify-center">
+                  <span className="text-[8rem] font-serif text-white/10">
+                    0{index + 1}
+                  </span>
+                </div>
+              )}
 
               {/* Overlay */}
               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
