@@ -11,13 +11,13 @@ gsap.registerPlugin(ScrollTrigger);
 // iPhone Frame Component
 function IPhoneFrame({ children }: { children: React.ReactNode }) {
   return (
-    <div className="relative mx-auto" style={{ width: '280px', height: '570px' }}>
+    <div className="relative flex-shrink-0" style={{ width: '220px', height: '450px' }}>
       {/* iPhone outer frame */}
-      <div className="absolute inset-0 bg-[#1a1a1a] rounded-[50px] shadow-2xl">
+      <div className="absolute inset-0 bg-[#1a1a1a] rounded-[40px] shadow-2xl">
         {/* Screen bezel */}
-        <div className="absolute inset-[8px] bg-black rounded-[42px] overflow-hidden">
+        <div className="absolute inset-[6px] bg-black rounded-[34px] overflow-hidden">
           {/* Dynamic Island */}
-          <div className="absolute top-3 left-1/2 -translate-x-1/2 w-[100px] h-[32px] bg-black rounded-full z-10" />
+          <div className="absolute top-2 left-1/2 -translate-x-1/2 w-[80px] h-[25px] bg-black rounded-full z-10" />
           {/* Screen content */}
           <div className="absolute inset-0">
             {children}
@@ -25,10 +25,10 @@ function IPhoneFrame({ children }: { children: React.ReactNode }) {
         </div>
       </div>
       {/* Side button */}
-      <div className="absolute right-[-2px] top-[120px] w-[3px] h-[60px] bg-[#2a2a2a] rounded-r-sm" />
+      <div className="absolute right-[-2px] top-[90px] w-[3px] h-[45px] bg-[#2a2a2a] rounded-r-sm" />
       {/* Volume buttons */}
-      <div className="absolute left-[-2px] top-[100px] w-[3px] h-[30px] bg-[#2a2a2a] rounded-l-sm" />
-      <div className="absolute left-[-2px] top-[140px] w-[3px] h-[50px] bg-[#2a2a2a] rounded-l-sm" />
+      <div className="absolute left-[-2px] top-[75px] w-[3px] h-[22px] bg-[#2a2a2a] rounded-l-sm" />
+      <div className="absolute left-[-2px] top-[105px] w-[3px] h-[38px] bg-[#2a2a2a] rounded-l-sm" />
     </div>
   );
 }
@@ -93,7 +93,7 @@ export function HorizontalGallery() {
         {projects.map((project, index) => (
           <article
             key={index}
-            className="gallery-item flex-shrink-0 w-[85vw] max-w-[1000px] h-[75vh] relative group"
+            className="gallery-item flex-shrink-0 w-[80vw] max-w-[800px] h-[80vh] relative group"
           >
             <a
               href={project.demoLink || project.codeLink}
@@ -105,7 +105,7 @@ export function HorizontalGallery() {
               <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-20`} />
 
               {/* Image area - top portion */}
-              <div className="absolute top-0 left-0 right-0 h-[65%] flex items-center justify-center p-8">
+              <div className="absolute top-0 left-0 right-0 h-[60%] flex items-center justify-center p-6 overflow-visible">
                 {project.type === 'mobile' && project.image ? (
                   <IPhoneFrame>
                     <Image
@@ -113,7 +113,7 @@ export function HorizontalGallery() {
                       alt={project.title}
                       fill
                       className="object-cover"
-                      sizes="280px"
+                      sizes="220px"
                     />
                   </IPhoneFrame>
                 ) : project.image ? (
