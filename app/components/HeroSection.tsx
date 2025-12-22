@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from './SplitText';
+import { AnimatedBlob } from './AnimatedBlob';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -42,11 +43,15 @@ export function HeroSection() {
 
   return (
     <section
+      id="hero"
       ref={heroRef}
       className="relative min-h-screen flex flex-col justify-center container-padding pt-32 pb-20"
     >
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-accent)]/5 to-transparent pointer-events-none" />
+
+      {/* Animated 3D Blob */}
+      <AnimatedBlob />
 
       <div className="relative z-10 max-w-[1400px] mx-auto w-full">
         {/* Eyebrow text */}

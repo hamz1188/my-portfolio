@@ -301,6 +301,11 @@ a, button, [role="button"], input, textarea, select {
   100% { transform: translateX(0); }
 }
 
+@keyframes float {
+  0% { transform: translateY(0) translateX(0); }
+  100% { transform: translateY(-20px) translateX(10px); }
+}
+
 .marquee-track {
   display: flex;
   width: max-content;

@@ -3,6 +3,7 @@ import { Inter, JetBrains_Mono, Playfair_Display } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from './components/ThemeProvider';
 import { Navigation } from './components/Navigation';
+import { FloatingNav } from './components/FloatingNav';
 import { CustomCursor } from './components/CustomCursor';
 import { SmoothScrollProvider } from './components/SmoothScrollProvider';
 
@@ -45,6 +46,7 @@ export default function RootLayout({
           <SmoothScrollProvider>
             <CustomCursor />
             <Navigation />
+            <FloatingNav />
             <main className="relative">
               {children}
             </main>

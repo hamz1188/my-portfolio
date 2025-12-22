@@ -16,43 +16,30 @@ export function HorizontalGallery() {
     if (!sectionRef.current || !trackRef.current) return;
 
     const track = trackRef.current;
-    const items = track.querySelectorAll('.gallery-item');
     const totalWidth = track.scrollWidth - window.innerWidth;
+    const progressBar = sectionRef.current.querySelector('.progress-bar');
 
     // Horizontal scroll animation
-    gsap.to(track, {
-      x: -totalWidth,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: 'top top',
-        end: () => `+=${totalWidth}`,
-        scrub: 1,
-        pin: true,
-        anticipatePin: 1,
+    const scrollTrigger = ScrollTrigger.create({
+      trigger: sectionRef.current,
+      start: 'top top',
+      end: () => `+=${totalWidth}`,
+      scrub: 1,
+      pin: true,
+      anticipatePin: 1,
+      onUpdate: (self) => {
+        // Animate the track
+        gsap.set(track, { x: -totalWidth * self.progress });
+
+        // Animate progress bar
+        if (progressBar) {
+          gsap.set(progressBar, { scaleX: self.progress });
+        }
       },
     });
 
-    // Parallax effect on images
-    items.forEach((item) => {
-      const img = item.querySelector('.gallery-image');
-      if (img) {
-        gsap.to(img, {
-          xPercent: -20,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: item,
-            containerAnimation: gsap.getById('horizontalScroll') as gsap.core.Animation,
-            start: 'left right',
-            end: 'right left',
-            scrub: true,
-          },
-        });
-      }
-    });
-
     return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
+      scrollTrigger.kill();
     };
   }, []);
 
@@ -90,7 +77,13 @@ export function HorizontalGallery() {
               href={project.demoLink || project.codeLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full h-full relative overflow-hidden rounded-2xl bg-[var(--color-muted)]"
+              className="block w-full h-full relative overflow-hidden bg-[var(--color-muted)]"
+              style={{
+                clipPath: index % 2 === 0
+                  ? 'polygon(0 5%, 5% 0, 95% 0, 100% 5%, 100% 95%, 95% 100%, 5% 100%, 0 95%)'
+                  : 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+                borderRadius: '24px',
+              }}
             >
               {/* Project image placeholder */}
               <div
@@ -152,7 +145,7 @@ export function HorizontalGallery() {
       <div className="absolute bottom-12 left-0 right-0 container-padding">
         <div className="h-px bg-white/10">
           <div
-            className="h-full bg-[var(--color-accent)] origin-left"
+            className="progress-bar h-full bg-[var(--color-accent)] origin-left"
             style={{ transform: 'scaleX(0)' }}
           />
         </div>

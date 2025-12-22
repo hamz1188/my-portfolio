@@ -2,6 +2,7 @@ import { HeroSection } from './components/HeroSection';
 import { MarqueeSection } from './components/MarqueeSection';
 import { HorizontalGallery } from './components/HorizontalGallery';
 import { AboutSection } from './components/AboutSection';
+import { FeatureCards } from './components/FeatureCards';
 import { ProcessSection } from './components/ProcessSection';
 import { VideoShowreel } from './components/VideoShowreel';
 import { ClientLogos } from './components/ClientLogos';
@@ -14,6 +15,7 @@ export default function Home() {
       <MarqueeSection text="Creative Developer" />
       <HorizontalGallery />
       <AboutSection />
+      <FeatureCards />
       <MarqueeSection text="Design & Development" reverse />
       <ProcessSection />
       <VideoShowreel />

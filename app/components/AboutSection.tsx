@@ -5,6 +5,8 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from './SplitText';
 import { RevealOnScroll } from './RevealOnScroll';
+import { ScrollText } from './ScrollText';
+import { CountUp } from './CountUp';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,9 +31,9 @@ export function AboutSection() {
   }, []);
 
   const stats = [
-    { number: '5+', label: 'Years building' },
-    { number: '30+', label: 'Projects shipped' },
-    { number: '15+', label: 'Happy clients' },
+    { number: 5, suffix: '+', label: 'Years building' },
+    { number: 30, suffix: '+', label: 'Projects shipped' },
+    { number: 15, suffix: '+', label: 'Happy clients' },
   ];
 
   return (
@@ -70,16 +72,14 @@ export function AboutSection() {
               </SplitText>
             </div>
 
-            <RevealOnScroll delay={0.2}>
-              <div className="mt-8 space-y-6 text-body-lg text-[var(--color-foreground-muted)]">
-                <p>
-                  I&apos;m Ahmed—a developer who designs and a designer who codes. I build apps and websites that look great and actually work.
-                </p>
-                <p>
-                  My secret weapon? AI-assisted tools like <span className="text-[var(--color-accent)]">Claude Code</span> and <span className="text-[var(--color-accent)]">Cursor</span> that let me ship faster without cutting corners. Based in <span className="text-[var(--color-foreground)]">Abu Dhabi</span>, working with clients everywhere.
-                </p>
-              </div>
-            </RevealOnScroll>
+            <div className="mt-8">
+              <ScrollText
+                className="text-body-lg text-[var(--color-foreground-muted)] leading-relaxed"
+                highlightWords={['Claude Code', 'Cursor', 'Abu Dhabi']}
+              >
+                I&apos;m Ahmed—a developer who designs and a designer who codes. I build apps and websites that look great and actually work. My secret weapon? AI-assisted tools like Claude Code and Cursor that let me ship faster without cutting corners. Based in Abu Dhabi, working with clients everywhere.
+              </ScrollText>
+            </div>
 
             {/* Stats */}
             <RevealOnScroll delay={0.4}>
@@ -87,7 +87,7 @@ export function AboutSection() {
                 {stats.map((stat) => (
                   <div key={stat.label}>
                     <div className="text-4xl md:text-5xl font-serif text-[var(--color-accent)]">
-                      {stat.number}
+                      <CountUp end={stat.number} suffix={stat.suffix} />
                     </div>
                     <div className="text-sm text-[var(--color-foreground-muted)] mt-2">
                       {stat.label}
