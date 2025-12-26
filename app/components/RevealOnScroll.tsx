@@ -90,17 +90,19 @@ export function RevealOnScroll({
     if (!ref.current) return;
 
     // Get variant config or use custom values
-    const variantConfig = variant === 'custom' ? {} : getVariantConfig(variant);
+    const variantConfig = variant === 'custom'
+      ? { y: 60, x: 0, scale: 1, rotation: 0, filter: 'none' }
+      : getVariantConfig(variant);
 
     // Allow custom overrides
     const fromConfig = {
-      y: y ?? variantConfig.y ?? 60,
-      x: x ?? variantConfig.x ?? 0,
-      scale: scale ?? variantConfig.scale ?? 1,
-      rotation: rotation ?? variantConfig.rotation ?? 0,
+      y: y ?? variantConfig.y,
+      x: x ?? variantConfig.x,
+      scale: scale ?? variantConfig.scale,
+      rotation: rotation ?? variantConfig.rotation,
       opacity,
-      filter: variantConfig.filter || 'none',
-      ...(variantConfig.rotateX && { rotateX: variantConfig.rotateX }),
+      filter: variantConfig.filter,
+      ...('rotateX' in variantConfig && { rotateX: variantConfig.rotateX }),
     };
 
     const toConfig = {
