@@ -2,45 +2,61 @@
 
 @theme {
   /* Typography */
-  --font-serif: 'Playfair Display', Georgia, serif;
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-sans: 'Sora', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
   /* Spacing Scale */
-  --space-section: clamp(80px, 15vw, 200px);
-  --space-element: clamp(40px, 8vw, 100px);
+  --space-section: clamp(100px, 18vw, 240px);
+  --space-element: clamp(48px, 10vw, 120px);
 
   /* Animation Timing */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
   --ease-in-out-cubic: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
   /* Layout */
-  --container-padding: clamp(20px, 5vw, 80px);
+  --container-padding: clamp(24px, 6vw, 100px);
+
+  /* Shadows */
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.35);
+  --shadow-xl: 0 40px 80px -20px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 60px rgba(220, 244, 141, 0.15);
 }
 
 /* Dark Mode (Default) */
 :root {
-  --color-background: #181717;
-  --color-background-light: #222121;
-  --color-foreground: #ffffff;
-  --color-foreground-muted: #888888;
+  --color-background: #0a0a0a;
+  --color-background-light: #111111;
+  --color-background-elevated: #1a1a1a;
+  --color-foreground: #fafafa;
+  --color-foreground-muted: #737373;
+  --color-foreground-subtle: #525252;
   --color-accent: #dcf48d;
-  --color-accent-light: #e5f7a8;
-  --color-accent-dark: #b8d66a;
-  --color-border: rgba(255, 255, 255, 0.1);
+  --color-accent-light: #e8f7b3;
+  --color-accent-dark: #a3e635;
+  --color-accent-glow: rgba(220, 244, 141, 0.3);
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-strong: rgba(255, 255, 255, 0.15);
 }
 
 /* Light Mode */
 .light {
-  --color-background: #f5f5f5;
+  --color-background: #fafafa;
   --color-background-light: #ffffff;
-  --color-foreground: #181717;
-  --color-foreground-muted: #666666;
-  --color-accent: #7cb342;
-  --color-accent-light: #9ccc65;
-  --color-accent-dark: #558b2f;
-  --color-border: rgba(0, 0, 0, 0.1);
+  --color-background-elevated: #f5f5f5;
+  --color-foreground: #0a0a0a;
+  --color-foreground-muted: #525252;
+  --color-foreground-subtle: #737373;
+  --color-accent: #65a30d;
+  --color-accent-light: #84cc16;
+  --color-accent-dark: #4d7c0f;
+  --color-accent-glow: rgba(101, 163, 13, 0.2);
+  --color-border: rgba(0, 0, 0, 0.06);
+  --color-border-strong: rgba(0, 0, 0, 0.12);
 }
 
 /* ========================================
@@ -81,44 +97,80 @@ body {
 /* Hero headline - massive responsive sizing */
 .text-hero {
   font-family: var(--font-serif);
-  font-size: clamp(3rem, 12vw, 10rem);
-  font-weight: 400;
-  line-height: 0.9;
-  letter-spacing: -0.03em;
+  font-size: clamp(4rem, 14vw, 12rem);
+  font-weight: 300;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  font-variation-settings: 'SOFT' 50, 'WONK' 1;
+}
+
+/* Display text - for giant decorative numbers/text */
+.text-display {
+  font-family: var(--font-serif);
+  font-size: clamp(8rem, 25vw, 20rem);
+  font-weight: 200;
+  line-height: 0.8;
+  letter-spacing: -0.05em;
+  font-variation-settings: 'SOFT' 100, 'WONK' 0;
 }
 
 /* Section headlines */
 .text-section {
   font-family: var(--font-serif);
-  font-size: clamp(2.5rem, 8vw, 6rem);
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em;
+  font-size: clamp(3rem, 10vw, 7rem);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  font-variation-settings: 'SOFT' 50, 'WONK' 1;
 }
 
 /* Subsection titles */
 .text-title {
   font-family: var(--font-sans);
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-size: clamp(1.75rem, 4vw, 3rem);
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+/* Subtitle */
+.text-subtitle {
+  font-family: var(--font-sans);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 400;
+  line-height: 1.4;
   letter-spacing: -0.01em;
 }
 
 /* Body large */
 .text-body-lg {
-  font-size: clamp(1.125rem, 2vw, 1.5rem);
-  line-height: 1.6;
-  font-weight: 300;
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+/* Body regular */
+.text-body {
+  font-size: 1rem;
+  line-height: 1.7;
+  font-weight: 400;
 }
 
 /* Label/caption text */
 .text-label {
   font-family: var(--font-sans);
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   font-weight: 500;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+/* Small label */
+.text-caption {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
 }
 
 /* ========================================

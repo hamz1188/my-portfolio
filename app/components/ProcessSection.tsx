@@ -3,8 +3,6 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { SplitText } from './SplitText';
-import { RevealOnScroll } from './RevealOnScroll';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,129 +11,167 @@ const processSteps = [
     number: '01',
     title: 'Talk',
     description:
-      'We hop on a call. You tell me what you need. I ask the right questions.',
+      'We hop on a call. You tell me what you need, I ask the right questions. No fancy proposals—just a real conversation about your project.',
   },
   {
     number: '02',
     title: 'Design',
     description:
-      'I sketch ideas, you give feedback, we iterate until it feels right.',
+      'I sketch ideas, you give feedback, we iterate until it clicks. Quick mockups, not month-long design phases.',
   },
   {
     number: '03',
     title: 'Build',
     description:
-      'I write clean code that runs fast. You get regular updates, not radio silence.',
+      'I write clean code that runs fast. Regular updates, not radio silence. You see progress, not just promises.',
   },
   {
     number: '04',
     title: 'Ship',
     description:
-      'We launch together. I stick around to make sure everything works perfectly.',
+      'We launch together. I stick around to make sure everything works perfectly. Your success is my reputation.',
   },
 ];
 
 export function ProcessSection() {
   const sectionRef = useRef<HTMLElement>(null);
-  const timelineRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!sectionRef.current || !timelineRef.current) return;
+    if (!sectionRef.current) return;
 
-    const steps = timelineRef.current.querySelectorAll('.process-step');
+    const ctx = gsap.context(() => {
+      // Animate header
+      gsap.fromTo(
+        '.process-header',
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 80%',
+          },
+        }
+      );
 
-    steps.forEach((step, index) => {
-      // Animate the line
-      const line = step.querySelector('.process-line');
-      if (line) {
+      // Animate each step
+      const steps = sectionRef.current?.querySelectorAll('.process-step');
+      steps?.forEach((step, index) => {
+        const isEven = index % 2 === 0;
+
+        // Animate the giant number
         gsap.fromTo(
-          line,
-          { scaleY: 0 },
+          step.querySelector('.process-number'),
+          { opacity: 0, x: isEven ? -100 : 100 },
           {
-            scaleY: 1,
-            ease: 'none',
+            opacity: 1,
+            x: 0,
+            duration: 1,
+            ease: 'power3.out',
             scrollTrigger: {
               trigger: step,
-              start: 'top 70%',
-              end: 'bottom 70%',
-              scrub: true,
+              start: 'top 80%',
             },
           }
         );
-      }
 
-      // Animate the dot
-      const dot = step.querySelector('.process-dot');
-      if (dot) {
+        // Animate the content
         gsap.fromTo(
-          dot,
-          { scale: 0 },
+          step.querySelector('.process-content'),
+          { opacity: 0, y: 40 },
           {
-            scale: 1,
-            duration: 0.5,
-            ease: 'back.out',
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            delay: 0.2,
+            ease: 'power3.out',
             scrollTrigger: {
               trigger: step,
-              start: 'top 70%',
-              toggleActions: 'play none none reverse',
+              start: 'top 75%',
             },
           }
         );
-      }
-    });
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
     <section
       id="process"
       ref={sectionRef}
-      className="section-padding container-padding bg-[var(--color-background-light)]"
+      className="section-padding container-padding bg-[var(--color-background)]"
     >
-      <div className="container-wide">
+      <div className="max-w-[1400px] mx-auto">
         {/* Header */}
-        <div className="max-w-3xl mb-24">
-          <RevealOnScroll>
-            <span className="text-label text-[var(--color-accent)]">How It Works</span>
-          </RevealOnScroll>
-          <div className="mt-6">
-            <SplitText className="text-section" type="words" stagger={0.05}>
-              Simple process. Real results.
-            </SplitText>
-          </div>
+        <div className="process-header max-w-3xl mb-24 md:mb-32">
+          <span className="text-label text-[var(--color-accent)] block mb-6">
+            How It Works
+          </span>
+          <h2 className="text-section">
+            Simple process.
+            <br />
+            <span className="text-[var(--color-foreground-muted)]">Real results.</span>
+          </h2>
         </div>
 
-        {/* Timeline */}
-        <div ref={timelineRef} className="relative">
+        {/* Process Steps */}
+        <div className="space-y-24 md:space-y-32">
           {processSteps.map((step, index) => (
             <div
               key={step.number}
-              className="process-step grid md:grid-cols-[1fr_auto_1fr] gap-8 md:gap-16 pb-24 last:pb-0"
+              className={`process-step grid md:grid-cols-12 gap-8 md:gap-12 items-center ${
+                index % 2 === 1 ? 'md:text-right' : ''
+              }`}
             >
-              {/* Left - Number */}
-              <div className="md:text-right">
-                <RevealOnScroll x={-30} y={0}>
-                  <span className="text-8xl md:text-9xl font-serif text-[var(--color-accent)]/20">
-                    {step.number}
+              {/* Giant number - alternating position */}
+              <div
+                className={`process-number md:col-span-5 ${
+                  index % 2 === 1 ? 'md:order-2' : ''
+                }`}
+              >
+                <span
+                  className="text-display text-[var(--color-accent)]/10 block leading-none"
+                  style={{ fontVariationSettings: "'SOFT' 100, 'WONK' 0" }}
+                >
+                  {step.number}
+                </span>
+              </div>
+
+              {/* Content */}
+              <div
+                className={`process-content md:col-span-7 ${
+                  index % 2 === 1 ? 'md:order-1' : ''
+                }`}
+              >
+                <h3 className="text-title mb-4">
+                  {step.title}
+                </h3>
+                <p className="text-body-lg text-[var(--color-foreground-muted)] max-w-lg leading-relaxed">
+                  {step.description}
+                </p>
+
+                {/* Progress indicator */}
+                <div className="flex items-center gap-4 mt-8">
+                  <div className="flex gap-2">
+                    {processSteps.map((_, i) => (
+                      <div
+                        key={i}
+                        className={`w-8 h-1 rounded-full transition-colors ${
+                          i <= index
+                            ? 'bg-[var(--color-accent)]'
+                            : 'bg-[var(--color-border)]'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                  <span className="text-caption text-[var(--color-foreground-subtle)]">
+                    Step {index + 1} of {processSteps.length}
                   </span>
-                </RevealOnScroll>
-              </div>
-
-              {/* Center - Timeline */}
-              <div className="hidden md:flex flex-col items-center">
-                <div className="process-dot w-4 h-4 rounded-full bg-[var(--color-accent)]" />
-                {index < processSteps.length - 1 && (
-                  <div className="process-line w-px h-full bg-[var(--color-accent)] origin-top" />
-                )}
-              </div>
-
-              {/* Right - Content */}
-              <div className="md:pt-2">
-                <RevealOnScroll x={30} y={0}>
-                  <h3 className="text-title mb-4">{step.title}</h3>
-                  <p className="text-[var(--color-foreground-muted)] max-w-md">
-                    {step.description}
-                  </p>
-                </RevealOnScroll>
+                </div>
               </div>
             </div>
           ))}

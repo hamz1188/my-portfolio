@@ -1,22 +1,24 @@
 import type { Metadata } from 'next';
-import { Inter, JetBrains_Mono, Playfair_Display } from 'next/font/google';
+import { Sora, JetBrains_Mono, Fraunces } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from './components/ThemeProvider';
 import { Navigation } from './components/Navigation';
 import { FloatingNav } from './components/FloatingNav';
 import { SmoothScrollProvider } from './components/SmoothScrollProvider';
+import { GrainOverlay } from './components/GrainOverlay';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
-const inter = Inter({
+const sora = Sora({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-sans',
 });
 
-const playfair = Playfair_Display({
+const fraunces = Fraunces({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-serif',
+  axes: ['SOFT', 'WONK', 'opsz'],
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -39,11 +41,12 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${playfair.variable} ${jetbrainsMono.variable}`}
+      className={`${sora.variable} ${fraunces.variable} ${jetbrainsMono.variable}`}
     >
       <body className="bg-[var(--color-background)] text-[var(--color-foreground)] antialiased overflow-x-hidden">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <SmoothScrollProvider>
+            <GrainOverlay />
             <Navigation />
             <FloatingNav />
             <main className="relative">

@@ -1,11 +1,9 @@
 import { HeroSection } from './components/HeroSection';
 import { MarqueeSection } from './components/MarqueeSection';
-import { HorizontalGallery } from './components/HorizontalGallery';
+import { BentoGrid } from './components/BentoGrid';
 import { AboutSection } from './components/AboutSection';
 import { FeatureCards } from './components/FeatureCards';
 import { ProcessSection } from './components/ProcessSection';
-import { VideoShowreel } from './components/VideoShowreel';
-import { ClientLogos } from './components/ClientLogos';
 import { Footer } from './components/Footer';
 
 export default function Home() {
@@ -13,13 +11,11 @@ export default function Home() {
     <>
       <HeroSection />
       <MarqueeSection text="Creative Developer" />
-      <HorizontalGallery />
+      <BentoGrid />
       <AboutSection />
       <FeatureCards />
       <MarqueeSection text="Design & Development" reverse />
       <ProcessSection />
-      <VideoShowreel />
-      <ClientLogos />
       <Footer />
     </>
   );
